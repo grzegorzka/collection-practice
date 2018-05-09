@@ -15,21 +15,6 @@ public class LinkedListCollectionTest extends BasicCollectionTest<Integer, Linke
    }
 
    @Override
-   public void isEmpty() {
-      // FIXME: remove method
-   }
-
-   @Override
-   public void size() {
-      // FIXME: remove method
-   }
-
-   @Override
-   public void addAndGet() {
-      // FIXME: remove method
-   }
-
-   @Override
    public void iterator() {
       // FIXME: remove method
    }
