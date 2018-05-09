@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"com.github.grzegorzka.collection","l":"BasicCollection"},{"p":"com.github.grzegorzka.collection","l":"BasicCollectionTest"},{"p":"com.github.grzegorzka.collection","l":"JavaUtilArrayListCollection"},{"p":"com.github.grzegorzka.collection","l":"JavaUtilArrayListCollectionTest"}]

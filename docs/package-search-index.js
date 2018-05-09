@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"com.github.grzegorzka.collection"}]
