@@ -2,6 +2,7 @@ package com.github.grzegorzka.collection;
 
 import java.util.Iterator;
 
+// FIXME: merge with LinkedListCollection and remove LinkedListCollection1
 public class LinkedListCollection1<T> implements BasicCollection<T> {
 
    class Node {
@@ -11,6 +12,8 @@ public class LinkedListCollection1<T> implements BasicCollection<T> {
 
    Node firstNode = null;
    Node lastNode = null;
+
+   // FIXME: rename to count or itemCount
    int x = 0;
 
    @Override
@@ -20,7 +23,7 @@ public class LinkedListCollection1<T> implements BasicCollection<T> {
       if (firstNode == null) {
          firstNode = node;
          lastNode = node;
-         x++;
+         x++; // FIXME: incrementation is in 'if' and in 'else' branches - place it outside 'if'
       } else {
          lastNode.nextNode = node;
          lastNode = node;
@@ -36,7 +39,7 @@ public class LinkedListCollection1<T> implements BasicCollection<T> {
    @Override
    public int size() {
       if (firstNode == null) {
-         return 0;
+         return 0; // FIXME: unneeded - x is initially 0
       } else {
          return x;
       }

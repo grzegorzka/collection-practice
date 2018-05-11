@@ -1,5 +1,6 @@
 package com.github.grzegorzka.collection;
 
+// FIXME: remove
 public class LinkedListCollectionTest1 extends BasicCollectionTest<Integer, LinkedListCollection1<Integer>> {
 
    @Override
