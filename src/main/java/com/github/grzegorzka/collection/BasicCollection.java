@@ -34,4 +34,17 @@ public interface BasicCollection<T> {
     */
    Iterator<T> iterator();
 
+   /**
+    * Removes all elements from collection
+    */
+   void clear();
+
+   /**
+    * Removes index'th element of collection, returning it
+    * @param index index of element to remove
+    * @return removed element
+    * @throws IndexOutOfBoundsException if index is invalid (negative or too big)
+    */
+   T remove(int index) throws IndexOutOfBoundsException;
+
 }

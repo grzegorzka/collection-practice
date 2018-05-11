@@ -73,4 +73,16 @@ public class LinkedListCollection1<T> implements BasicCollection<T> {
       if (true) throw new UnsupportedOperationException("Not implemented yet");
       return null;
    }
+
+
+   @Override
+   public void clear() {
+      // FIXME: implement
+   }
+
+   @Override
+   public T remove(int index) throws IndexOutOfBoundsException {
+      return null; // FIXME: implement
+   }
+
 }

@@ -32,4 +32,14 @@ public class JavaUtilArrayListCollection<T> implements BasicCollection<T> {
    public Iterator<T> iterator() {
       return internalList.iterator();
    }
+
+   @Override
+   public void clear() {
+      internalList.clear();
+   }
+
+   @Override
+   public T remove(int index) throws IndexOutOfBoundsException {
+      return internalList.remove(index);
+   }
 }

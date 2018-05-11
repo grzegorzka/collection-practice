@@ -93,4 +93,14 @@ public abstract class BasicCollectionTest<T, C extends BasicCollection<T>> {
    public void iterator() {
       // FIXME: implement test
    }
+
+   @Test
+   public void clear() {
+      // FIXME: implement test
+   }
+
+   @Test
+   public void remove() {
+      // FIXME: remove
+   }
 }
