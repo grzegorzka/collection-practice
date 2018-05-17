@@ -76,7 +76,7 @@ public class LinkedListCollection<T> implements BasicCollection<T> {
 
    @Override
    public T remove(int index) throws IndexOutOfBoundsException {
-      if (firstNode == null || index < 0 || index > count) {
+      if (firstNode == null || index < 0 || index >= count) {
          throw new IndexOutOfBoundsException(index);
       } else {
          T valueIndexNode = get(index);
@@ -90,7 +90,7 @@ public class LinkedListCollection<T> implements BasicCollection<T> {
             } else {
                Node preIndexNode = firstNode;
                Node postIndexNode = firstNode.nextNode.nextNode;
-               for (int i = 0; i < index; i++){
+               for (int i = 0; i < index - 1 ; i++){
                   preIndexNode = preIndexNode.nextNode;
                   postIndexNode = postIndexNode.nextNode;
                }
