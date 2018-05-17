@@ -10,6 +10,9 @@ public class LinkedListCollection<T> implements BasicCollection<T> {
    }
 
    Node firstNode = null;
+   Node lastNode = null;
+
+   int count = 0;
 
    @Override
    public void add(T item) {
@@ -17,13 +20,12 @@ public class LinkedListCollection<T> implements BasicCollection<T> {
       node.value = item;
       if (firstNode == null) {
          firstNode = node;
+         lastNode = node;
       } else {
-         Node lastNode = firstNode;
-         while (lastNode.nextNode != null) {
-            lastNode = lastNode.nextNode;
-         }
          lastNode.nextNode = node;
+         lastNode = node;
       }
+      count++;
    }
 
    @Override
@@ -33,17 +35,7 @@ public class LinkedListCollection<T> implements BasicCollection<T> {
 
    @Override
    public int size() {
-      if (firstNode == null) {
-         return 0;
-      } else {
-         Node lastNode = firstNode;
-         int x = 0;
-         while (lastNode != null) {
-            lastNode = lastNode.nextNode;
-            x++;
-         }
-         return x;
-      }
+      return count;
    }
 
    @Override
@@ -77,11 +69,39 @@ public class LinkedListCollection<T> implements BasicCollection<T> {
 
    @Override
    public void clear() {
-      // FIXME: implement
+      firstNode = null;
+      lastNode = null;
+      count = 0;
    }
 
    @Override
    public T remove(int index) throws IndexOutOfBoundsException {
-      return null; // FIXME: implement
+      if (firstNode == null || index < 0 || index > count) {
+         throw new IndexOutOfBoundsException(index);
+      } else {
+         T valueIndexNode = get(index);
+         if (index == 0) {
+            Node indexNode = firstNode;
+            firstNode = firstNode.nextNode;
+         } else {
+            if (index == count-1) {
+               Node indexNode = lastNode;
+               lastNode = null;
+            } else {
+               Node preIndexNode = firstNode;
+               Node postIndexNode = firstNode.nextNode.nextNode;
+               for (int i = 0, i < index, i++){
+                  preIndexNode = preIndexNode.nextNode;
+                  postIndexNode = postIndexNode.nextNode;
+               }
+               preIndexNode.nextNode = postIndexNode;
+            }
+
+         }
+         count -= 1;
+         return valueIndexNode;
+      }
+
    }
+
 }
