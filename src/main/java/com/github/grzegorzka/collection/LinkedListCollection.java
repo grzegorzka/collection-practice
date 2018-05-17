@@ -90,7 +90,7 @@ public class LinkedListCollection<T> implements BasicCollection<T> {
             } else {
                Node preIndexNode = firstNode;
                Node postIndexNode = firstNode.nextNode.nextNode;
-               for (int i = 0, i < index, i++){
+               for (int i = 0; i < index; i++){
                   preIndexNode = preIndexNode.nextNode;
                   postIndexNode = postIndexNode.nextNode;
                }
@@ -98,7 +98,7 @@ public class LinkedListCollection<T> implements BasicCollection<T> {
             }
 
          }
-         count -= 1;
+         count --;
          return valueIndexNode;
       }
 
