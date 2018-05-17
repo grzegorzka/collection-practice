@@ -2,6 +2,8 @@ package com.github.grzegorzka.collection;
 
 import static org.junit.Assert.*;
 
+import org.junit.Test;
+
 public class LinkedListCollectionTest extends BasicCollectionTest<Integer, LinkedListCollection<Integer>> {
 
    @Override
@@ -15,6 +17,7 @@ public class LinkedListCollectionTest extends BasicCollectionTest<Integer, Linke
    }
 
    @Override
+   @Test
    public void iterator() {
       // FIXME: remove method
    }
