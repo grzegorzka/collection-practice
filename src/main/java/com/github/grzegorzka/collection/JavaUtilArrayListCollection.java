@@ -29,11 +29,6 @@ public class JavaUtilArrayListCollection<T> implements BasicCollection<T> {
    }
 
    @Override
-   public Iterator<T> iterator() {
-      return internalList.iterator();
-   }
-
-   @Override
    public void clear() {
       internalList.clear();
    }

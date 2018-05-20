@@ -62,12 +62,6 @@ public class LinkedListCollection<T> implements BasicCollection<T> {
    }
 
    @Override
-   public Iterator<T> iterator() {
-      if (true) throw new UnsupportedOperationException("Not implemented yet");
-      return null;
-   }
-
-   @Override
    public void clear() {
       firstNode = null;
       lastNode = null;

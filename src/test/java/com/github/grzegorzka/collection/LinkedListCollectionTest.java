@@ -16,9 +16,4 @@ public class LinkedListCollectionTest extends BasicCollectionTest<Integer, Linke
       return random.nextInt();
    }
 
-   @Override
-   @Test
-   public void iterator() {
-      // FIXME: remove method
-   }
 }

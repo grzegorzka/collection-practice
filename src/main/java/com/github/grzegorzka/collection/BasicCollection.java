@@ -30,11 +30,6 @@ public interface BasicCollection<T> {
    T get(int index) throws IndexOutOfBoundsException;
 
    /**
-    * Returns {@link Iterator} over the collection
-    */
-   Iterator<T> iterator();
-
-   /**
     * Removes all elements from collection
     */
    void clear();
