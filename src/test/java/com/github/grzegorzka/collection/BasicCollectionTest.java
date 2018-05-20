@@ -48,6 +48,15 @@ public abstract class BasicCollectionTest<T, C extends BasicCollection<T>> {
 
       assertEquals(n + 1, collection.size());
 
+      int m = random.nextInt(90) + 10;
+
+      for (int i = 0; i < m; i++) {
+         collection.remove(0);
+      }
+
+      assertEquals(n + 1 - m, collection.size());
+
+
    }
 
    @Test

@@ -1,5 +1,7 @@
 package com.github.grzegorzka.collection;
 
+import java.util.NoSuchElementException;
+
 public interface BasicQueue<T> {
 
    /**
@@ -7,19 +9,19 @@ public interface BasicQueue<T> {
     * @param object
     * @throws IllegalArgumentException if object is null
     */
-   void push(T object) throws IllegalArgumentException;
+   void add(T object) throws IllegalArgumentException;
 
    /**
     * Return object from beginning of the queue
-    * @return object, or null if queue is empty
+    * @return first object or null if queue is empty
     */
    T peek();
 
    /**
     * Return object from beginning of the queue, and remove it from the queue
-    * @return object, or null if queue is empty
+    * @throws NoSuchElementException if queue is empty
     */
-   T pop();
+   T pop() throws NoSuchElementException;
 
    /**
     * Return size of the queue

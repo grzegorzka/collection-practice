@@ -49,6 +49,14 @@ public abstract class BasicStackTest<T, C extends BasicStack<T>> {
 
       assertEquals(n + 1, stack.size());
 
+      int m = random.nextInt(90) + 10;
+
+      for (int i = 0; i < m; i++) {
+         stack.pop();
+      }
+
+      assertEquals(n + 1 - m, stack.size());
+
    }
 
    @Test

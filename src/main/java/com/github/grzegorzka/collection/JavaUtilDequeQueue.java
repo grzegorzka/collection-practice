@@ -8,8 +8,8 @@ public class JavaUtilDequeQueue<T> implements BasicQueue<T> {
    private Deque<T> deque = new LinkedList<>();
 
    @Override
-   public void push(T object) throws IllegalArgumentException {
-      deque.push(object);
+   public void add(T object) throws IllegalArgumentException {
+      deque.add(object);
    }
 
    @Override
