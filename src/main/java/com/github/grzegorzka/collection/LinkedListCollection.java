@@ -75,11 +75,9 @@ public class LinkedListCollection<T> implements BasicCollection<T> {
       } else {
          T valueIndexNode = get(index);
          if (index == 0) {
-            Node indexNode = firstNode;
             firstNode = firstNode.nextNode;
          } else {
             if (index == count-1) {
-               Node indexNode = lastNode;
                lastNode = null;
             } else {
                Node preIndexNode = firstNode;
