@@ -15,7 +15,7 @@ public class BasicHashMapTest {
 
     int itemCount = 1000000;
 
-    BasicHashMap<String, LocalDate> map = new BasicHashMap<>(1000);
+    BasicHashMap<String, LocalDate> map = new BasicHashMap<>(100000);
 
     assertEquals(0, map.size());
     assertTrue(map.isEmpty());

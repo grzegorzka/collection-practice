@@ -1,16 +1,18 @@
 package com.github.grzegorzka.collection;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 public class BasicHashMap<K extends Comparable<K>, V> implements BasicDictionary<K, V> {
 
-  private final BasicCollection<Pair<K, V>>[] dataTable;
+  private final Map<K, V>[] dataTable;
   private final int dataTableSize;
 
   private int size = 0;
 
   BasicHashMap(int tableSize) {
-    dataTable = new BasicCollection[tableSize];
+    dataTable = new Map[tableSize];
     dataTableSize = tableSize;
   }
 
@@ -27,14 +29,14 @@ public class BasicHashMap<K extends Comparable<K>, V> implements BasicDictionary
 
     int index = computeHashValue(key);
 
-    BasicCollection<Pair<K, V>> dataAtIndex = dataTable[index];
+    Map<K, V> dataAtIndex = dataTable[index];
 
     if (dataAtIndex == null) {
-      dataAtIndex = new LinkedListCollection<>();
+      dataAtIndex = new HashMap<>();
       dataTable[index] = dataAtIndex;
     }
 
-    dataAtIndex.add(new Pair<>(key, value));
+    dataAtIndex.put(key, value);
 
     size++;
   }
@@ -42,30 +44,22 @@ public class BasicHashMap<K extends Comparable<K>, V> implements BasicDictionary
   @Override
   public boolean containsKey(K key) {
     int index = computeHashValue(key);
-    BasicCollection<Pair<K, V>> dataAtIndex = dataTable[index];
+    Map<K, V> dataAtIndex = dataTable[index];
     if (dataAtIndex == null) {
       return false;
     }
-    for (int i = 0; i < dataAtIndex.size(); i++) {
-      if (dataAtIndex.get(i).getFirst().compareTo(key) == 0) {
-        return true;
-      }
-    }
-    return false;
+    return dataAtIndex.containsKey(key);
   }
 
   @Override
   public V get(K key) {
     int index = computeHashValue(key);
-    BasicCollection<Pair<K, V>> dataAtIndex = dataTable[index];
+    Map<K, V> dataAtIndex = dataTable[index];
     if (dataAtIndex == null) {
       throw new NoSuchElementException("Element not found");
     }
-    for (int i = 0; i < dataAtIndex.size(); i++) {
-      Pair<K, V> dataPair = dataAtIndex.get(i);
-      if (dataPair.getFirst().compareTo(key) == 0) {
-        return dataPair.getSecond();
-      }
+    if (dataAtIndex.containsKey(key)) {
+      return dataAtIndex.get(key);
     }
     throw new NoSuchElementException("Element not found");
   }
@@ -73,17 +67,13 @@ public class BasicHashMap<K extends Comparable<K>, V> implements BasicDictionary
   @Override
   public boolean remove(K key) {
     int index = computeHashValue(key);
-    BasicCollection<Pair<K, V>> dataAtIndex = dataTable[index];
+    Map<K, V> dataAtIndex = dataTable[index];
     if (dataAtIndex == null) {
       return false;
     }
-    for (int i = 0; i < dataAtIndex.size(); i++) {
-      Pair<K, V> dataPair = dataAtIndex.get(i);
-      if (dataPair.getFirst().compareTo(key) == 0) {
-        dataAtIndex.remove(i);
-        size--;
-        return true;
-      }
+    if (dataAtIndex.remove(key) != null) {
+      size--;
+      return true;
     }
     return false;
   }
